@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engagement Rate Calculator - CreatorTools.io</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-700 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full max-w-4xl mx-auto pt-6 px-4">
+        <a href="index.html" class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 mr-1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to Home
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="w-full max-w-4xl mx-auto py-6 px-4 flex-grow">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+            <!-- Header -->
+            <div class="bg-blue-600 p-6 text-white text-center md:text-left md:flex md:items-center md:justify-between">
+                <div>
+                    <h1 class="text-2xl font-bold flex items-center justify-center md:justify-start gap-2">
+                        <!-- Heart/Chart Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-blue-200">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                        Engagement Check
+                    </h1>
+                    <p class="text-blue-100 text-sm mt-1">Analyze your audience interaction quality</p>
+                </div>
+                <div class="hidden md:block text-blue-200 text-sm font-medium bg-blue-700 px-3 py-1 rounded-full">
+                    v1.0
+                </div>
+            </div>
+
+            <div class="p-6 md:p-8 grid md:grid-cols-2 gap-8 md:gap-12">
+                
+                <!-- Inputs Column -->
+                <div class="space-y-6">
+                    
+                    <!-- Followers Input -->
+                    <div>
+                        <label htmlFor="followers" class="block text-sm font-semibold text-slate-700 mb-2">
+                            Total Followers
+                        </label>
+                        <div class="relative rounded-md shadow-sm">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-slate-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                                </svg>
+                            </div>
+                            <input
+                                type="number"
+                                id="followers-input"
+                                min="1"
+                                class="block w-full rounded-lg border-slate-300 pl-10 py-3 text-slate-900 ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 transition-all outline-none"
+                                placeholder="e.g. 10000"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Likes Input -->
+                    <div>
+                        <label htmlFor="likes" class="block text-sm font-semibold text-slate-700 mb-2">
+                            Average Likes per Post
+                        </label>
+                        <div class="relative rounded-md shadow-sm">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-slate-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                </svg>
+                            </div>
+                            <input
+                                type="number"
+                                id="likes-input"
+                                min="0"
+                                class="block w-full rounded-lg border-slate-300 pl-10 py-3 text-slate-900 ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 transition-all outline-none"
+                                placeholder="e.g. 500"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Comments Input -->
+                    <div>
+                        <label htmlFor="comments" class="block text-sm font-semibold text-slate-700 mb-2">
+                            Average Comments per Post
+                        </label>
+                        <div class="relative rounded-md shadow-sm">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 text-slate-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.286 3.423.379.35.028.71.042 1.07.042 3.257 0 6.235-1.684 7.86-4.275.439-1.094.765-2.26.941-3.475.232-1.605-1.196-2.96-2.74-2.96H6.75c-1.606 0-2.94 1.446-2.74 3.105.104.864.31 1.695.596 2.465zM9 21v-4.25" />
+                                </svg>
+                            </div>
+                            <input
+                                type="number"
+                                id="comments-input"
+                                min="0"
+                                class="block w-full rounded-lg border-slate-300 pl-10 py-3 text-slate-900 ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 transition-all outline-none"
+                                placeholder="e.g. 25"
+                            />
+                        </div>
+                    </div>
+
+                    <button
+                        id="calculate-btn"
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-slate-300 cursor-not-allowed transition-all duration-200 transform active:scale-[0.98]"
+                        disabled
+                    >
+                        Calculate Rate
+                    </button>
+                </div>
+
+                <!-- Output Column -->
+                <div class="flex flex-col justify-center">
+                    <!-- Placeholder State -->
+                    <div id="placeholder-state" class="h-full min-h-[250px] flex flex-col items-center justify-center text-slate-400 border-2 border-dashed border-slate-200 rounded-xl bg-slate-50/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mb-2 opacity-20">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                        <p class="text-sm font-medium">Enter your stats to see the rate</p>
+                    </div>
+
+                    <!-- Results State (Hidden by default) -->
+                    <div id="results-state" class="hidden h-full min-h-[250px] flex flex-col justify-center animate-fade-in-up">
+                        <div id="result-box" class="w-full rounded-xl p-8 text-center border shadow-sm transition-colors duration-300">
+                            <p class="text-sm font-semibold uppercase tracking-wider mb-2 opacity-70">Engagement Rate</p>
+                            <p id="result-percentage" class="text-5xl font-extrabold mb-4">0.00%</p>
+                            <div id="result-badge" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium">
+                                <!-- Status text goes here -->
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-slate-500">
+                                Formula: ((Likes + Comments) / Followers) × 100
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Instructions Footer -->
+            <div class="bg-slate-50 px-6 py-6 md:px-8 border-t border-slate-100">
+                <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3">Understanding the results</h4>
+                <ul class="grid gap-3 sm:grid-cols-3 text-sm text-slate-600">
+                    <li class="flex items-start gap-2">
+                        <div class="flex-shrink-0 w-3 h-3 rounded-full bg-red-400 mt-1.5"></div>
+                        <span><strong>Below 1%</strong>: Low engagement. Your audience is passive or inactive.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <div class="flex-shrink-0 w-3 h-3 rounded-full bg-orange-400 mt-1.5"></div>
+                        <span><strong>1% - 3.5%</strong>: Average. This is standard for most growing accounts.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <div class="flex-shrink-0 w-3 h-3 rounded-full bg-green-500 mt-1.5"></div>
+                        <span><strong>Above 3.5%</strong>: Excellent! Highly active community. Great for sponsors.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const followersInput = document.getElementById('followers-input');
+        const likesInput = document.getElementById('likes-input');
+        const commentsInput = document.getElementById('comments-input');
+        const calculateBtn = document.getElementById('calculate-btn');
+        
+        const placeholderState = document.getElementById('placeholder-state');
+        const resultsState = document.getElementById('results-state');
+        const resultBox = document.getElementById('result-box');
+        const resultPercentage = document.getElementById('result-percentage');
+        const resultBadge = document.getElementById('result-badge');
+
+        // State Management Logic
+        function updateButtonState() {
+            const followers = followersInput.value;
+            const likes = likesInput.value;
+            const comments = commentsInput.value;
+
+            if (followers > 0 && likes !== '' && comments !== '') {
+                calculateBtn.disabled = false;
+                calculateBtn.classList.remove('bg-slate-300', 'cursor-not-allowed');
+                calculateBtn.classList.add('bg-blue-600', 'hover:bg-blue-700', 'focus:ring-2', 'focus:ring-offset-2', 'focus:ring-blue-500', 'shadow-blue-200');
+            } else {
+                calculateBtn.disabled = true;
+                calculateBtn.classList.add('bg-slate-300', 'cursor-not-allowed');
+                calculateBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'focus:ring-2', 'focus:ring-offset-2', 'focus:ring-blue-500', 'shadow-blue-200');
+            }
+        }
+
+        function handleCalculate() {
+            const followers = parseFloat(followersInput.value);
+            const likes = parseFloat(likesInput.value) || 0;
+            const comments = parseFloat(commentsInput.value) || 0;
+
+            if (!followers || followers <= 0) return;
+
+            // Logic: ((Likes + Comments) / Followers) * 100
+            const totalInteractions = likes + comments;
+            const rate = (totalInteractions / followers) * 100;
+
+            // Styling Variables
+            let statusText = '';
+            let textColorClass = '';
+            let bgClass = '';
+            let badgeClass = '';
+
+            if (rate < 1) {
+                statusText = 'Low Engagement';
+                textColorClass = 'text-red-600';
+                bgClass = 'bg-red-50 border-red-100';
+                badgeClass = 'bg-red-100 text-red-700';
+            } else if (rate >= 1 && rate <= 3.5) {
+                statusText = 'Average Engagement';
+                textColorClass = 'text-orange-600';
+                bgClass = 'bg-orange-50 border-orange-100';
+                badgeClass = 'bg-orange-100 text-orange-800';
+            } else {
+                statusText = 'High Engagement - Good for Sponsors!';
+                textColorClass = 'text-green-600';
+                bgClass = 'bg-green-50 border-green-100';
+                badgeClass = 'bg-green-100 text-green-800';
+            }
+
+            // Apply Changes
+            resultPercentage.innerText = rate.toFixed(2) + '%';
+            resultBadge.innerText = statusText;
+            
+            // Reset classes
+            resultBox.className = `w-full rounded-xl p-8 text-center border shadow-sm transition-colors duration-300 ${bgClass}`;
+            resultPercentage.className = `text-5xl font-extrabold mb-4 ${textColorClass}`;
+            resultBadge.className = `inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${badgeClass}`;
+
+            // Show Results
+            placeholderState.classList.add('hidden');
+            resultsState.classList.remove('hidden');
+            
+            // Trigger animation
+            resultsState.classList.remove('animate-fade-in-up');
+            void resultsState.offsetWidth;
+            resultsState.classList.add('animate-fade-in-up');
+        }
+
+        // Event Listeners
+        followersInput.addEventListener('input', updateButtonState);
+        likesInput.addEventListener('input', updateButtonState);
+        commentsInput.addEventListener('input', updateButtonState);
+        calculateBtn.addEventListener('click', handleCalculate);
+
+        // Initialize
+        updateButtonState();
+    </script>
+</body>
+</html>
